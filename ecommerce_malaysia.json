@@ -8,7 +8,7 @@
     "data": [
       {
         "name": "table",
-        "url":"https://raw.githubusercontent.com/andonwong/FIT3179_A2/main/data/malaysia_flight_passenger.json",
+        "url":"https://raw.githubusercontent.com/andonwong/FIT3179_A2/main/data/malaysia_ecommerce.json",
         "transform": [
           {
             "type": "stack",
