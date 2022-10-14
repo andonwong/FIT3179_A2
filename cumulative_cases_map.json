@@ -2,7 +2,7 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "width": 725,
     "height": 500,
-    "projection": {"type": "equalEarth"},
+    "projection": {"type": "equalEarth"}, 
     "data": {
       "url": "https://raw.githubusercontent.com/JiazhouLiu/FIT3179/main/VegaLite/3_choropleth_map/js/ne_110m_admin_0_countries.topojson",
       "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
@@ -26,11 +26,16 @@
       "color": {
         "field": "Cases per 10,000 population",
         "type": "quantitative",
+        "legend":{
+          "direction": "horizontal",
+          "orient": "bottom",
+          "titleAlign": "center"
+        },
         "scale":{
           "type": "threshold",
           "domain": [10, 100, 1000],
           "range": ["#fdbe85", "#fd8d3c", "#e6550d", "#a63603"]
-        }  
+        }
       },
       "tooltip": [
         {"field": "properties.NAME", "type": "nominal", "title": "Country"},
