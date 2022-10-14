@@ -1,0 +1,42 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 725,
+    "height": 500,
+    "projection": {"type": "equalEarth"},
+    "data": {
+      "url": "https://raw.githubusercontent.com/JiazhouLiu/FIT3179/main/VegaLite/3_choropleth_map/js/ne_110m_admin_0_countries.topojson",
+      "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
+    },
+    "transform": [
+      {
+        "lookup": "properties.NAME",
+        "from": {
+          "data": {
+            "url": "https://raw.githubusercontent.com/andonwong/FIT3179_A2/main/data/cumulative_covid19_cases.csv"
+          },
+          "key": "Country",
+          "fields": ["Total_Confirmed_Cases","Cumulative_deaths","Population"]
+        }
+      },
+      {"calculate": "datum.Total_Confirmed_Cases/datum.Population * 10000", 
+      "as": "Cases per 10,000 population"}
+    ],
+    "mark": {"type": "geoshape"},
+    "encoding": {
+      "color": {
+        "field": "Cases per 10,000 population",
+        "type": "quantitative",
+        "scale":{
+          "type": "threshold",
+          "domain": [10, 100, 1000],
+          "range": ["#fdbe85", "#fd8d3c", "#e6550d", "#a63603"]
+        }  
+      },
+      "tooltip": [
+        {"field": "properties.NAME", "type": "nominal", "title": "Country"},
+        {"field": "Total_Confirmed_Cases", "type": "quantitative"},
+        {"field": "Population", "type": "quantitative"},
+        {"field": "Cases per 10,000 population", "type": "quantitative","format":".0f"}
+      ]
+    }
+  }

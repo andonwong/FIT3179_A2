@@ -1,0 +1,15 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title":"Number of passengers arriving in Malaysia",
+  "description": "Live Chart showing the number of passengers arriving in Malaysia",
+  "width": 500,
+  "height": 500,
+
+  "data": {"url": "data/malaysia flight passenger.json"},
+
+  "mark": "line",
+  "encoding": {
+    "x": {"field": "Year", "type": "temporal"},
+    "y": {"field": "Number of Passengers", "type": "quantitative"}
+  }
+}

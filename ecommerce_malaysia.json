@@ -1,0 +1,71 @@
+{
+    "$schema": "https://vega.github.io/schema/vega/v5.json",
+    "title":"Growth of Ecommerce in Malaysia",
+    "description": "Stacked Bar Chart showing the growth of ecommerce in Malaysia",
+    "width": 500,
+    "height": 500,
+
+    "data": [
+      {
+        "name": "table",
+        "url":"https://raw.githubusercontent.com/andonwong/FIT3179_A2/main/data/malaysia_flight_passenger.json",
+        "transform": [
+          {
+            "type": "stack",
+            "groupby": ["Year"],
+            "field": "Value"
+          }
+        ]
+      }
+    ],
+  
+    "scales": [
+      {
+        "name": "x",
+        "type": "band",
+        "range": "width",
+        "domain": {"data": "table", "field": "Year"}
+      },
+      {
+        "name": "y",
+        "type": "linear",
+        "range": "height",
+        "nice": true, "zero": true,
+        "domain": [0,11]
+      },
+      {
+        "name": "color",
+        "type": "ordinal",
+        "range": "category",
+        "domain": {"data": "table", "field": "Industry"}
+      }
+    ],
+  
+    "axes": [
+      {"orient": "bottom", "scale": "x", "zindex": 1},
+      {"orient": "left", "scale": "y", "zindex": 1}
+    ],
+  
+    "marks": [
+      {
+        "type": "rect",
+        "from": {"data": "table"},
+        "encode": {
+          "enter": {
+            "x": {"scale": "x", "field": "Year"},
+            "width": {"scale": "x", "band": 1, "offset": -1},
+            "y": {"scale": "y", "field": "y0"},
+            "y2": {"scale": "y", "field": "y1"},
+            "fill": {"scale":"color", "field": "Industry"}
+        },
+        "update": {
+            "fillOpacity": {"value": 1}
+        },
+        "hover": {
+            "fillOpacity": {"value": 0.5}
+        }
+    }
+    }
+    ]
+  }
+  
