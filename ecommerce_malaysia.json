@@ -31,6 +31,10 @@
       "legend" : {
         "labelLimit":50
       }
-    }
+    },
+    "tooltip": [
+      {"field": "Industry", "type": "nominal", "title": "Industry"},
+      {"field": "Value", "type": "quantitative", "title": "Values in Billion USD"}
+    ]
   }
 }
