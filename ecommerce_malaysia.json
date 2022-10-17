@@ -9,7 +9,8 @@
   "mark": "bar",
   "encoding": {
     "x": {
-      "field":"Year"
+      "field":"Year",
+      "axis":{"labelAngle":0}
     },
     "y": {
       "aggregate": "sum",
