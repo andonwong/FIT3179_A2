@@ -12,7 +12,7 @@
 
   "mark": "line",
   "encoding": {
-    "x": {"field": "Year", "type": "temporal"},
+    "x": {"field": "Year","axis":{"labelAngle":0}},
     "y": {"field": "Number of Passengers", "type": "quantitative"}
   }
 }
