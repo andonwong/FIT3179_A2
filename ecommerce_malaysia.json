@@ -2,6 +2,9 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "data": {"url": "https://raw.githubusercontent.com/andonwong/FIT3179_A2/main/data/malaysia_ecommerce.json"},
   
+  "width": 500,
+  "height": 500,
+  
   "background":"beige",
   "mark": "bar",
   "encoding": {
